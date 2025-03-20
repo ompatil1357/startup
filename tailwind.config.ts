@@ -159,6 +159,7 @@ export default {
             fontFamily: {
                 'mono': ['Space Mono', 'monospace'],
                 'sans': ['Inter', 'sans-serif'],
+                'calibri': ['Calibri', 'Arial', 'sans-serif'],
             },
             backdropBlur: {
                 'xs': '2px',
