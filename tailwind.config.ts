@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -12,7 +13,13 @@ export default {
 	theme: {
 		container: {
 			center: true,
-			padding: '2rem',
+			padding: {
+				DEFAULT: '1rem',
+				sm: '2rem',
+				lg: '4rem',
+				xl: '5rem',
+				'2xl': '6rem',
+			},
 			screens: {
 				'2xl': '1400px'
 			}
@@ -61,7 +68,15 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+                space: {
+                    'blue': '#33C3F0',
+                    'dark': '#1A1F2C',
+                    'light': '#F6F7F9',
+                    'gray': '#8A898C',
+                    'silver': '#C8C8C9',
+                    'accent': '#0FA0CE',
+                }
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,12 +99,70 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+                'fade-in': {
+                    '0%': { 
+                        opacity: '0',
+                        transform: 'translateY(10px)'
+                    },
+                    '100%': { 
+                        opacity: '1',
+                        transform: 'translateY(0)'
+                    }
+                },
+                'fade-out': {
+                    '0%': { 
+                        opacity: '1',
+                        transform: 'translateY(0)'
+                    },
+                    '100%': { 
+                        opacity: '0',
+                        transform: 'translateY(10px)'
+                    }
+                },
+                'slide-in': {
+                    '0%': { transform: 'translateX(-100%)' },
+                    '100%': { transform: 'translateX(0)' }
+                },
+                'slide-up': {
+                    '0%': { transform: 'translateY(20px)', opacity: '0' },
+                    '100%': { transform: 'translateY(0)', opacity: '1' }
+                },
+                'scale-in': {
+                    '0%': { transform: 'scale(0.95)', opacity: '0' },
+                    '100%': { transform: 'scale(1)', opacity: '1' }
+                },
+                'float': {
+                    '0%, 100%': { transform: 'translateY(0)' },
+                    '50%': { transform: 'translateY(-10px)' }
+                },
+                'glow': {
+                    '0%, 100%': { 
+                        boxShadow: '0 0 5px rgba(51, 195, 240, 0.3), 0 0 10px rgba(51, 195, 240, 0.2)' 
+                    },
+                    '50%': { 
+                        boxShadow: '0 0 10px rgba(51, 195, 240, 0.5), 0 0 20px rgba(51, 195, 240, 0.3)' 
+                    }
+                }
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+				'accordion-up': 'accordion-up 0.2s ease-out',
+                'fade-in': 'fade-in 0.5s ease-out',
+                'fade-out': 'fade-out 0.5s ease-out',
+                'slide-in': 'slide-in 0.5s ease-out',
+                'slide-up': 'slide-up 0.5s ease-out',
+                'scale-in': 'scale-in 0.3s ease-out',
+                'float': 'float 6s ease-in-out infinite',
+                'glow': 'glow 3s ease-in-out infinite'
+			},
+            fontFamily: {
+                'mono': ['Space Mono', 'monospace'],
+                'sans': ['Inter', 'sans-serif'],
+            },
+            backdropBlur: {
+                'xs': '2px',
+            },
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
