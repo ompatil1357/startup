@@ -4,18 +4,18 @@ import { ShieldCheck, Eye, Globe, Clock, Lock, Zap } from 'lucide-react';
 export function Features() {
   return (
     <section className="py-24 bg-secondary/50 dark:bg-secondary/10">
-      <div className="container">
+      <div className="container px-4 sm:px-6 mx-auto">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
             Advanced Features for Modern Transactions
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-base sm:text-lg">
             Our platform combines cutting-edge technology with user-friendly design to provide 
             the most secure and efficient escrow experience available.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           <FeatureItem 
             icon={<ShieldCheck className="h-8 w-8 text-primary" />}
             title="Secure Vault"
@@ -60,10 +60,10 @@ interface FeatureItemProps {
 
 function FeatureItem({ icon, title, description }: FeatureItemProps) {
   return (
-    <div className="group p-6 rounded-xl border border-border bg-card hover:shadow-md transition-all">
+    <div className="group p-6 rounded-xl border border-border bg-card hover:shadow-md transition-all h-full flex flex-col">
       <div className="mb-4">{icon}</div>
       <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">{title}</h3>
-      <p className="text-muted-foreground">{description}</p>
+      <p className="text-muted-foreground text-sm sm:text-base">{description}</p>
     </div>
   );
 }

@@ -4,20 +4,20 @@ import { Footer } from "@/components/Footer";
 
 const About = () => {
   return (
-    <div className="min-h-screen overflow-hidden">
+    <div className="min-h-screen">
       <Navbar />
       <main className="pt-32 pb-24">
-        <div className="container">
+        <div className="container px-4 sm:px-6">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl font-bold mb-8">About AstroEscrow</h1>
+            <h1 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8">About AstroEscrow</h1>
             
             <div className="prose dark:prose-invert max-w-none">
-              <p className="text-lg text-muted-foreground mb-8">
+              <p className="text-base sm:text-lg text-muted-foreground mb-8">
                 AstroEscrow was founded with a simple mission: to create a secure, transparent platform 
                 for digital transactions in an increasingly connected world.
               </p>
               
-              <h2 className="text-2xl font-semibold mt-12 mb-4">Our Story</h2>
+              <h2 className="text-xl sm:text-2xl font-semibold mt-10 sm:mt-12 mb-4">Our Story</h2>
               <p>
                 Established in 2023, AstroEscrow emerged as a response to the growing need for secure 
                 transaction methods in the digital marketplace. Our founders, seasoned professionals 
@@ -26,15 +26,15 @@ const About = () => {
                 concerns, and payment disputes.
               </p>
               
-              <h2 className="text-2xl font-semibold mt-12 mb-4">Our Mission</h2>
+              <h2 className="text-xl sm:text-2xl font-semibold mt-10 sm:mt-12 mb-4">Our Mission</h2>
               <p>
                 We are dedicated to providing a seamless, secure escrow service that protects all parties 
                 in a transaction. By combining advanced technology with user-friendly design, we aim to 
                 make escrow services accessible to everyone, from individual freelancers to global enterprises.
               </p>
               
-              <h2 className="text-2xl font-semibold mt-12 mb-4">Our Values</h2>
-              <ul>
+              <h2 className="text-xl sm:text-2xl font-semibold mt-10 sm:mt-12 mb-4">Our Values</h2>
+              <ul className="space-y-4">
                 <li>
                   <strong>Security:</strong> We implement the highest standards of data protection and 
                   financial security to safeguard our users' assets and information.
@@ -53,14 +53,14 @@ const About = () => {
                 </li>
               </ul>
               
-              <h2 className="text-2xl font-semibold mt-12 mb-4">Our Team</h2>
+              <h2 className="text-xl sm:text-2xl font-semibold mt-10 sm:mt-12 mb-4">Our Team</h2>
               <p>
                 The AstroEscrow team brings together expertise from diverse fields including fintech, 
                 cybersecurity, law, and customer service. This cross-disciplinary approach allows us to 
                 address the complex challenges of secure digital transactions from multiple perspectives.
               </p>
               
-              <h2 className="text-2xl font-semibold mt-12 mb-4">Global Reach</h2>
+              <h2 className="text-xl sm:text-2xl font-semibold mt-10 sm:mt-12 mb-4">Global Reach</h2>
               <p>
                 Based in San Francisco with team members across North America, Europe, and Asia, AstroEscrow 
                 serves clients worldwide. Our platform supports multiple currencies and complies with relevant 

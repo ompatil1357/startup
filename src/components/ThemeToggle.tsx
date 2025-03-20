@@ -12,6 +12,7 @@ export function ThemeToggle() {
       size="icon" 
       onClick={toggleTheme}
       className="rounded-full w-9 h-9 transition-all duration-300 hover:bg-primary/10"
+      aria-label="Toggle theme"
     >
       {theme === 'dark' ? (
         <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all" />

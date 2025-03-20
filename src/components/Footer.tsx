@@ -5,15 +5,15 @@ import { ShieldCheck, Twitter, Linkedin, Github, Facebook } from 'lucide-react';
 
 export function Footer() {
   return (
-    <footer className="bg-card border-t border-border py-16">
-      <div className="container">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+    <footer className="bg-card border-t border-border py-12 sm:py-16">
+      <div className="container px-4 sm:px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-2 text-xl font-semibold tracking-tight">
               <ShieldCheck className="h-6 w-6 text-primary" />
               <span>AstroEscrow</span>
             </Link>
-            <p className="text-muted-foreground max-w-xs">
+            <p className="text-muted-foreground max-w-xs text-sm sm:text-base">
               Secure, transparent escrow services for digital transactions across the globe.
             </p>
             <div className="flex items-center gap-4">
@@ -59,7 +59,7 @@ export function Footer() {
           />
         </div>
         
-        <div className="border-t border-border mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between text-sm text-muted-foreground">
+        <div className="border-t border-border mt-10 pt-8 flex flex-col sm:flex-row items-center justify-between text-sm text-muted-foreground">
           <p>© {new Date().getFullYear()} AstroEscrow Inc. All rights reserved.</p>
           <p className="mt-4 sm:mt-0">Secure by design. Built for trust.</p>
         </div>
@@ -100,7 +100,7 @@ function FooterLinks({ title, links }: FooterLinksProps) {
           <li key={index}>
             <Link 
               to={link.href} 
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="text-muted-foreground hover:text-foreground transition-colors text-sm sm:text-base"
             >
               {link.label}
             </Link>

@@ -5,11 +5,14 @@ type Theme = 'dark' | 'light';
 
 export function useTheme() {
   const [theme, setTheme] = useState<Theme>(() => {
-    const savedTheme = localStorage.getItem('theme') as Theme;
-    return savedTheme || 
-      (window.matchMedia('(prefers-color-scheme: dark)').matches 
-        ? 'dark' 
-        : 'light');
+    if (typeof window !== 'undefined') {
+      const savedTheme = localStorage.getItem('theme') as Theme;
+      return savedTheme || 
+        (window.matchMedia('(prefers-color-scheme: dark)').matches 
+          ? 'dark' 
+          : 'light');
+    }
+    return 'light'; // Default theme
   });
 
   useEffect(() => {

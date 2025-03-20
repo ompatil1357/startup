@@ -10,7 +10,7 @@ import { Footer } from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen overflow-hidden">
+    <div className="min-h-screen">
       <Navbar />
       <main>
         <Hero />
