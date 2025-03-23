@@ -3,13 +3,43 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ChevronRight, Shield, DollarSign } from 'lucide-react';
 import { Slider } from '@/components/ui/slider';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
 
 export function Hero() {
   const [priceRange, setPriceRange] = useState([500]);
+  const [priceInput, setPriceInput] = useState("500");
   const [experienceLevel, setExperienceLevel] = useState("beginner");
+
+  // Sync the input with the slider
+  useEffect(() => {
+    setPriceInput(priceRange[0].toString());
+  }, [priceRange]);
+
+  // Handle direct price input
+  const handlePriceInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setPriceInput(value);
+    
+    const numValue = parseInt(value);
+    if (!isNaN(numValue) && numValue >= 100 && numValue <= 10000) {
+      setPriceRange([numValue]);
+    }
+  };
+
+  // Handle price input blur to ensure valid range
+  const handlePriceInputBlur = () => {
+    const numValue = parseInt(priceInput);
+    if (isNaN(numValue) || numValue < 100) {
+      setPriceRange([100]);
+      setPriceInput("100");
+    } else if (numValue > 10000) {
+      setPriceRange([10000]);
+      setPriceInput("10000");
+    }
+  };
 
   return (
     <section className="relative overflow-hidden py-32 min-h-screen flex items-center justify-center">
@@ -39,18 +69,26 @@ export function Hero() {
                 <Link to="/signup">Get Started <ChevronRight className="ml-2 h-4 w-4" /></Link>
               </Button>
               <Button size="lg" variant="outline" className="hover-lift" asChild>
-                <Link to="/how-it-works">How It Works</Link>
+                <Link to="/find-editors">Find Editors</Link>
               </Button>
             </div>
             
-            <div className="w-full max-w-md mx-auto mt-10 p-6 bg-card/80 backdrop-blur-sm rounded-xl border border-border animate-fade-in hover-lift" style={{ animationDelay: '400ms' }}>
-              <div className="space-y-6">
+            <div className="w-full max-w-sm mx-auto mt-10 p-4 bg-card/80 backdrop-blur-sm rounded-xl border border-border animate-fade-in hover-lift" style={{ animationDelay: '400ms' }}>
+              <div className="space-y-4">
                 <div className="space-y-2">
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between mb-1">
                     <Label htmlFor="price-range" className="font-medium">Budget Range</Label>
-                    <div className="flex items-center text-primary font-medium">
-                      <DollarSign className="h-4 w-4 mr-1" />
-                      <span>{priceRange[0]}</span>
+                    <div className="flex items-center gap-1">
+                      <DollarSign className="h-4 w-4" />
+                      <Input
+                        type="number"
+                        value={priceInput}
+                        onChange={handlePriceInputChange}
+                        onBlur={handlePriceInputBlur}
+                        className="w-20 h-8 p-1 text-right"
+                        min="100"
+                        max="10000"
+                      />
                     </div>
                   </div>
                   <Slider
@@ -60,9 +98,9 @@ export function Hero() {
                     max={10000}
                     step={100}
                     onValueChange={setPriceRange}
-                    className="py-2"
+                    className="py-1"
                   />
-                  <div className="flex justify-between text-xs text-muted-foreground pt-1">
+                  <div className="flex justify-between text-xs text-muted-foreground">
                     <span>$100</span>
                     <span>$10,000</span>
                   </div>
