@@ -22,13 +22,13 @@ const NotFound = () => {
       <Navbar />
       <main className="pt-32 pb-24">
         <div className="container flex flex-col items-center justify-center text-center">
-          <h1 className="text-9xl font-bold text-primary mb-4">404</h1>
-          <p className="text-2xl text-muted-foreground mb-8">Oops! Page not found</p>
-          <p className="text-muted-foreground max-w-md mb-8">
+          <h1 className="text-9xl font-bold text-primary mb-4 font-heming tracking-tight">404</h1>
+          <p className="text-2xl text-muted-foreground mb-8 font-heming">Oops! Page not found</p>
+          <p className="text-muted-foreground max-w-md mb-8 font-heming">
             The page you are looking for might have been removed, had its name changed,
             or is temporarily unavailable.
           </p>
-          <Button size="lg" asChild>
+          <Button size="lg" asChild className="font-heming font-medium">
             <Link to="/">
               <ArrowLeft className="mr-2 h-4 w-4" /> Return to Home
             </Link>

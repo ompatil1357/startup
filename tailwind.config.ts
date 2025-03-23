@@ -160,6 +160,7 @@ export default {
                 'mono': ['Space Mono', 'monospace'],
                 'sans': ['Inter', 'sans-serif'],
                 'calibri': ['Calibri', 'Arial', 'sans-serif'],
+                'heming': ['Heming', 'sans-serif'],
             },
             backdropBlur: {
                 'xs': '2px',

@@ -1,5 +1,13 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+/* Import Heming font (assume it's loaded via self-hosted or other method) */
+@font-face {
+  font-family: 'Heming';
+  src: url('/fonts/Heming-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
 
 @tailwind base;
 @tailwind components;
@@ -79,7 +87,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-calibri antialiased;
+    @apply bg-background text-foreground font-heming antialiased;
   }
   
   ::selection {

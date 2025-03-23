@@ -38,10 +38,10 @@ export function Navbar() {
             className="flex items-center gap-3 text-xl font-semibold tracking-tight transition-colors"
           >
             <ShieldCheck className="h-7 w-7 text-primary" />
-            <span className="font-calibri">AstroEscrow</span>
+            <span className="font-heming tracking-wide">AstroEscrow</span>
           </Link>
           
-          <div className="hidden md:flex items-center gap-10">
+          <div className="hidden md:flex items-center gap-14">
             <NavLinks />
           </div>
           
@@ -51,11 +51,11 @@ export function Navbar() {
               size="sm" 
               variant="outline" 
               asChild 
-              className="hidden sm:inline-flex hover:bg-primary hover:text-white font-calibri"
+              className="hidden sm:inline-flex hover:bg-primary hover:text-white font-heming font-medium"
             >
               <Link to="/login">Login</Link>
             </Button>
-            <Button size="sm" className="hidden sm:inline-flex font-calibri">
+            <Button size="sm" className="hidden sm:inline-flex font-heming font-medium">
               <Link to="/signup">Get Started</Link>
             </Button>
             <Button 
@@ -76,7 +76,7 @@ export function Navbar() {
         <div className="fixed inset-0 z-50 bg-background/95 backdrop-blur-sm md:hidden">
           <div className="fixed top-0 right-0 w-full p-6">
             <div className="flex items-center justify-between">
-              <Link to="/" className="flex items-center gap-2 text-xl font-semibold font-calibri" onClick={() => setMobileMenuOpen(false)}>
+              <Link to="/" className="flex items-center gap-2 text-xl font-semibold font-heming" onClick={() => setMobileMenuOpen(false)}>
                 <ShieldCheck className="h-6 w-6 text-primary" />
                 <span>AstroEscrow</span>
               </Link>
@@ -89,30 +89,30 @@ export function Navbar() {
           <nav className="mt-20 p-6">
             <ul className="space-y-6 text-center text-lg">
               <li>
-                <Link to="/how-it-works" className="block py-2 font-calibri" onClick={() => setMobileMenuOpen(false)}>
+                <Link to="/how-it-works" className="block py-2 font-heming font-medium" onClick={() => setMobileMenuOpen(false)}>
                   How It Works
                 </Link>
               </li>
               <li>
-                <Link to="/pricing" className="block py-2 font-calibri" onClick={() => setMobileMenuOpen(false)}>
+                <Link to="/pricing" className="block py-2 font-heming font-medium" onClick={() => setMobileMenuOpen(false)}>
                   Pricing
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="block py-2 font-calibri" onClick={() => setMobileMenuOpen(false)}>
+                <Link to="/about" className="block py-2 font-heming font-medium" onClick={() => setMobileMenuOpen(false)}>
                   About
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="block py-2 font-calibri" onClick={() => setMobileMenuOpen(false)}>
+                <Link to="/contact" className="block py-2 font-heming font-medium" onClick={() => setMobileMenuOpen(false)}>
                   Contact
                 </Link>
               </li>
               <li className="pt-4">
-                <Button className="w-full mb-3 font-calibri" asChild>
+                <Button className="w-full mb-3 font-heming font-medium" asChild>
                   <Link to="/signup" onClick={() => setMobileMenuOpen(false)}>Get Started</Link>
                 </Button>
-                <Button variant="outline" className="w-full font-calibri" asChild>
+                <Button variant="outline" className="w-full font-heming font-medium" asChild>
                   <Link to="/login" onClick={() => setMobileMenuOpen(false)}>Login</Link>
                 </Button>
               </li>
@@ -138,7 +138,7 @@ function NavLinks() {
         <Link 
           key={link.href} 
           to={link.href}
-          className="text-slide-hover text-muted-foreground hover:text-foreground transition-colors text-base font-medium font-calibri"
+          className="text-slide-hover text-muted-foreground hover:text-foreground transition-colors text-base font-heming font-medium tracking-wide"
         >
           <span data-text={link.label}>{link.label}</span>
         </Link>
