@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
 /* Import Heming font (assume it's loaded via self-hosted or other method) */
 @font-face {
@@ -121,13 +120,13 @@
   }
   
   .floating-navbar {
-    @apply fixed top-6 left-1/2 transform -translate-x-1/2 z-50 glass rounded-full px-5 py-3;
+    @apply fixed top-4 w-full z-50 glass px-4 py-3;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
   }
   
   .floating-navbar.scrolled {
-    @apply bg-background/80 dark:bg-background/80 top-4;
+    @apply bg-background/80 dark:bg-background/80;
   }
 
   /* Animation utilities */

@@ -29,10 +29,10 @@ export function Navbar() {
   return (
     <>
       <nav className={cn(
-        "floating-navbar w-auto max-w-4xl transition-all duration-300", 
+        "floating-navbar w-full max-w-full px-8 transition-all duration-300", 
         scrolled && "scrolled shadow-lg"
       )}>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between w-full">
           <Link 
             to="/" 
             className="flex items-center text-xl font-semibold tracking-tight transition-colors"
@@ -125,7 +125,7 @@ function NavLinks() {
   ];
 
   return (
-    <div className="flex space-x-10">
+    <div className="flex space-x-12">
       {links.map((link) => (
         <Link 
           key={link.href} 
