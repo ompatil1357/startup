@@ -1,9 +1,16 @@
 
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { ChevronRight, Shield, Star } from 'lucide-react';
+import { ChevronRight, Shield, DollarSign } from 'lucide-react';
+import { Slider } from '@/components/ui/slider';
+import { useState } from 'react';
+import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
+import { Label } from '@/components/ui/label';
 
 export function Hero() {
+  const [priceRange, setPriceRange] = useState([500]);
+  const [experienceLevel, setExperienceLevel] = useState("beginner");
+
   return (
     <section className="relative overflow-hidden py-32 min-h-screen flex items-center justify-center">
       <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/0 to-background z-0"></div>
@@ -36,16 +43,62 @@ export function Hero() {
               </Button>
             </div>
             
-            <div className="flex items-center gap-4 text-sm text-muted-foreground pt-8 animate-slide-up" style={{ animationDelay: '400ms' }}>
-              <div className="flex -space-x-2">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <div key={i} className="w-8 h-8 rounded-full border-2 border-background bg-muted/80"></div>
-                ))}
-              </div>
-              <div className="flex items-center">
-                <Star className="h-4 w-4 text-yellow-500 fill-yellow-500 mr-1" />
-                <span className="font-medium">4.9/5</span>
-                <span className="ml-2">from over 3,000 reviews</span>
+            <div className="w-full max-w-md mx-auto mt-10 p-6 bg-card/80 backdrop-blur-sm rounded-xl border border-border animate-fade-in hover-lift" style={{ animationDelay: '400ms' }}>
+              <div className="space-y-6">
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <Label htmlFor="price-range" className="font-medium">Budget Range</Label>
+                    <div className="flex items-center text-primary font-medium">
+                      <DollarSign className="h-4 w-4 mr-1" />
+                      <span>{priceRange[0]}</span>
+                    </div>
+                  </div>
+                  <Slider
+                    id="price-range"
+                    value={priceRange}
+                    min={100}
+                    max={10000}
+                    step={100}
+                    onValueChange={setPriceRange}
+                    className="py-2"
+                  />
+                  <div className="flex justify-between text-xs text-muted-foreground pt-1">
+                    <span>$100</span>
+                    <span>$10,000</span>
+                  </div>
+                </div>
+                
+                <div className="space-y-2">
+                  <Label htmlFor="experience-level" className="font-medium">Experience Level</Label>
+                  <ToggleGroup 
+                    id="experience-level"
+                    type="single" 
+                    value={experienceLevel} 
+                    onValueChange={(value) => {
+                      if (value) setExperienceLevel(value);
+                    }}
+                    className="justify-between w-full hover-lift"
+                  >
+                    <ToggleGroupItem 
+                      value="beginner" 
+                      className="w-full data-[state=on]:bg-primary/20 transition-all duration-300 hover:bg-primary/10"
+                    >
+                      Beginner
+                    </ToggleGroupItem>
+                    <ToggleGroupItem 
+                      value="intermediate" 
+                      className="w-full data-[state=on]:bg-primary/20 transition-all duration-300 hover:bg-primary/10"
+                    >
+                      Intermediate
+                    </ToggleGroupItem>
+                    <ToggleGroupItem 
+                      value="advanced" 
+                      className="w-full data-[state=on]:bg-primary/20 transition-all duration-300 hover:bg-primary/10"
+                    >
+                      Advanced
+                    </ToggleGroupItem>
+                  </ToggleGroup>
+                </div>
               </div>
             </div>
           </div>
