@@ -29,34 +29,30 @@ export function Navbar() {
   return (
     <>
       <nav className={cn(
-        "floating-navbar w-auto max-w-3xl transition-all duration-300", 
+        "floating-navbar w-auto max-w-4xl transition-all duration-300", 
         scrolled && "scrolled shadow-lg"
       )}>
         <div className="flex items-center justify-between">
           <Link 
             to="/" 
-            className="flex items-center gap-3 text-xl font-semibold tracking-tight transition-colors"
+            className="flex items-center text-xl font-semibold tracking-tight transition-colors"
           >
             <ShieldCheck className="h-7 w-7 text-primary" />
-            <span className="font-heming tracking-wide">AstroEscrow</span>
           </Link>
           
-          <div className="hidden md:flex items-center gap-14">
+          <div className="hidden md:flex items-center justify-center flex-1 mx-6">
             <NavLinks />
           </div>
           
-          <div className="flex items-center gap-4 md:gap-6">
+          <div className="flex items-center gap-3">
             <ThemeToggle />
             <Button 
               size="sm" 
               variant="outline" 
               asChild 
-              className="hidden sm:inline-flex hover:bg-primary hover:text-white font-heming font-medium"
+              className="hidden sm:inline-flex hover:bg-primary hover:text-white hover-lift font-heming font-medium"
             >
               <Link to="/login">Login</Link>
-            </Button>
-            <Button size="sm" className="hidden sm:inline-flex font-heming font-medium">
-              <Link to="/signup">Get Started</Link>
             </Button>
             <Button 
               variant="ghost" 
@@ -78,7 +74,6 @@ export function Navbar() {
             <div className="flex items-center justify-between">
               <Link to="/" className="flex items-center gap-2 text-xl font-semibold font-heming" onClick={() => setMobileMenuOpen(false)}>
                 <ShieldCheck className="h-6 w-6 text-primary" />
-                <span>AstroEscrow</span>
               </Link>
               <Button variant="ghost" size="icon" onClick={toggleMobileMenu}>
                 <X className="h-5 w-5" />
@@ -109,9 +104,6 @@ export function Navbar() {
                 </Link>
               </li>
               <li className="pt-4">
-                <Button className="w-full mb-3 font-heming font-medium" asChild>
-                  <Link to="/signup" onClick={() => setMobileMenuOpen(false)}>Get Started</Link>
-                </Button>
                 <Button variant="outline" className="w-full font-heming font-medium" asChild>
                   <Link to="/login" onClick={() => setMobileMenuOpen(false)}>Login</Link>
                 </Button>
@@ -133,7 +125,7 @@ function NavLinks() {
   ];
 
   return (
-    <>
+    <div className="flex space-x-10">
       {links.map((link) => (
         <Link 
           key={link.href} 
@@ -143,6 +135,6 @@ function NavLinks() {
           <span data-text={link.label}>{link.label}</span>
         </Link>
       ))}
-    </>
+    </div>
   );
 }

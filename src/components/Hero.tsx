@@ -5,13 +5,13 @@ import { ChevronRight, Shield, Star } from 'lucide-react';
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden grid-pattern pt-28 pb-16">
+    <section className="relative overflow-hidden pt-32 pb-16 min-h-screen flex items-center">
       <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/0 to-background z-0"></div>
       
       <div className="container relative z-10">
         <div className="max-w-5xl mx-auto">
           <div className="flex flex-col items-center text-center space-y-8">
-            <div className="inline-flex items-center px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-sm text-primary mb-4 animate-fade-in">
+            <div className="inline-flex items-center px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-sm text-primary mb-4 animate-fade-in hover-lift">
               <Shield className="h-3.5 w-3.5 mr-2" />
               <span>Secure Escrow Services for Digital Assets</span>
             </div>
@@ -28,10 +28,10 @@ export function Hero() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 pt-4 animate-slide-up" style={{ animationDelay: '300ms' }}>
-              <Button size="lg" asChild>
+              <Button size="lg" className="hover-lift" asChild>
                 <Link to="/signup">Get Started <ChevronRight className="ml-2 h-4 w-4" /></Link>
               </Button>
-              <Button size="lg" variant="outline" asChild>
+              <Button size="lg" variant="outline" className="hover-lift" asChild>
                 <Link to="/how-it-works">How It Works</Link>
               </Button>
             </div>
@@ -82,7 +82,7 @@ interface FeatureCardProps {
 function FeatureCard({ title, description, delay }: FeatureCardProps) {
   return (
     <div 
-      className="group relative p-6 rounded-xl border border-border bg-card backdrop-blur-sm hover:shadow-md transition-all animate-scale-in"
+      className="group relative p-6 rounded-xl border border-border bg-card backdrop-blur-sm hover:shadow-md transition-all animate-scale-in hover-lift"
       style={{ animationDelay: `${delay}ms` }}
     >
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
