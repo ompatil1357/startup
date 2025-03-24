@@ -29,7 +29,7 @@ export function Navbar() {
   return (
     <>
       <nav className={cn(
-        "floating-navbar w-full max-w-full px-8 transition-all duration-300", 
+        "floating-navbar w-full max-w-full px-8 transition-all duration-300 mx-auto", 
         scrolled && "scrolled shadow-lg"
       )}>
         <div className="flex items-center justify-between w-full">
@@ -37,7 +37,7 @@ export function Navbar() {
             to="/" 
             className="flex items-center text-xl font-semibold tracking-tight transition-colors"
           >
-            <ShieldCheck className="h-7 w-7 text-primary" />
+            <ShieldCheck className="h-7 w-7 text-white" />
           </Link>
           
           <div className="hidden md:flex items-center justify-center flex-1 mx-6">
@@ -50,7 +50,7 @@ export function Navbar() {
               size="sm" 
               variant="outline" 
               asChild 
-              className="hidden sm:inline-flex hover:bg-primary hover:text-white hover-lift font-heming font-medium"
+              className="hidden sm:inline-flex hover:bg-white hover:text-primary hover-slide-right font-heming font-medium"
             >
               <Link to="/login">Login</Link>
             </Button>
@@ -73,7 +73,7 @@ export function Navbar() {
           <div className="fixed top-0 right-0 w-full p-6">
             <div className="flex items-center justify-between">
               <Link to="/" className="flex items-center gap-2 text-xl font-semibold font-heming" onClick={() => setMobileMenuOpen(false)}>
-                <ShieldCheck className="h-6 w-6 text-primary" />
+                <ShieldCheck className="h-6 w-6 text-white" />
               </Link>
               <Button variant="ghost" size="icon" onClick={toggleMobileMenu}>
                 <X className="h-5 w-5" />
@@ -104,7 +104,7 @@ export function Navbar() {
                 </Link>
               </li>
               <li className="pt-4">
-                <Button variant="outline" className="w-full font-heming font-medium" asChild>
+                <Button variant="outline" className="w-full font-heming font-medium hover-slide-right" asChild>
                   <Link to="/login" onClick={() => setMobileMenuOpen(false)}>Login</Link>
                 </Button>
               </li>

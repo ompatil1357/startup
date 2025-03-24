@@ -45,104 +45,102 @@ export function Hero() {
     <section className="relative overflow-hidden py-32 min-h-screen flex items-center justify-center">
       <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/0 to-background z-0"></div>
       
-      <div className="container relative z-10">
-        <div className="max-w-5xl mx-auto text-center">
-          <div className="flex flex-col items-center space-y-6">
-            <div className="inline-flex items-center px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-sm text-primary mb-4 animate-fade-in hover-lift">
-              <Shield className="h-3.5 w-3.5 mr-2" />
-              <span>Secure Escrow Services for Digital Assets</span>
-            </div>
-            
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight animate-slide-up">
-              <span className="block">Secure Transactions</span>
-              <span className="block mt-2 text-primary">Beyond Boundaries</span>
-            </h1>
-            
-            <p className="text-muted-foreground max-w-3xl text-lg md:text-xl animate-slide-up mx-auto" style={{ animationDelay: '200ms' }}>
-              AstroEscrow provides a safe, transparent platform for conducting digital transactions. 
-              Our state-of-the-art escrow service ensures your assets remain protected until all 
-              conditions are met.
-            </p>
-            
-            {/* Budget and Experience Selection Box - Now smaller and moved up */}
-            <div className="w-full max-w-xs mx-auto mt-6 p-3 bg-card/80 backdrop-blur-sm rounded-xl border border-border animate-fade-in hover-lift" style={{ animationDelay: '300ms' }}>
-              <div className="space-y-3">
-                <div className="space-y-1.5">
-                  <div className="flex items-center justify-between mb-1">
-                    <Label htmlFor="price-range" className="text-sm font-medium">Budget Range</Label>
-                    <div className="flex items-center gap-1">
-                      <DollarSign className="h-3.5 w-3.5" />
-                      <Input
-                        type="number"
-                        value={priceInput}
-                        onChange={handlePriceInputChange}
-                        onBlur={handlePriceInputBlur}
-                        className="w-16 h-7 p-1 text-right text-sm"
-                        min="100"
-                        max="10000"
-                      />
-                    </div>
-                  </div>
-                  <Slider
-                    id="price-range"
-                    value={priceRange}
-                    min={100}
-                    max={10000}
-                    step={100}
-                    onValueChange={setPriceRange}
-                    className="py-0.5"
-                  />
-                  <div className="flex justify-between text-xs text-muted-foreground">
-                    <span>$100</span>
-                    <span>$10,000</span>
+      <div className="container relative z-10 text-center">
+        <div className="max-w-5xl mx-auto flex flex-col items-center">
+          <div className="inline-flex items-center px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-sm text-primary mb-4 animate-fade-in hover-lift">
+            <Shield className="h-3.5 w-3.5 mr-2" />
+            <span>Secure Escrow Services for Digital Assets</span>
+          </div>
+          
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight animate-slide-up text-center">
+            <span className="block glow-text">Secure Transactions</span>
+            <span className="block mt-2 text-white liquid-text">Beyond Boundaries</span>
+          </h1>
+          
+          <p className="text-muted-foreground max-w-3xl text-lg md:text-xl animate-slide-up mx-auto mt-4" style={{ animationDelay: '200ms' }}>
+            AstroEscrow provides a safe, transparent platform for conducting digital transactions. 
+            Our state-of-the-art escrow service ensures your assets remain protected until all 
+            conditions are met.
+          </p>
+          
+          {/* Budget and Experience Selection Box - Smaller and moved up */}
+          <div className="w-full max-w-xs mx-auto mt-4 p-2 bg-card/80 backdrop-blur-sm rounded-lg border border-border animate-fade-in hover-lift" style={{ animationDelay: '300ms' }}>
+            <div className="space-y-2">
+              <div className="space-y-1">
+                <div className="flex items-center justify-between mb-1">
+                  <Label htmlFor="price-range" className="text-xs font-medium">Budget Range</Label>
+                  <div className="flex items-center gap-1">
+                    <DollarSign className="h-3 w-3" />
+                    <Input
+                      type="number"
+                      value={priceInput}
+                      onChange={handlePriceInputChange}
+                      onBlur={handlePriceInputBlur}
+                      className="w-16 h-6 p-1 text-right text-xs focus:ring-primary/50 focus:border-primary/50"
+                      min="100"
+                      max="10000"
+                    />
                   </div>
                 </div>
-                
-                <div className="space-y-1.5">
-                  <Label htmlFor="experience-level" className="text-sm font-medium">Experience Level</Label>
-                  <ToggleGroup 
-                    id="experience-level"
-                    type="single" 
-                    value={experienceLevel} 
-                    onValueChange={(value) => {
-                      if (value) setExperienceLevel(value);
-                    }}
-                    className="justify-between w-full hover-lift"
-                  >
-                    <ToggleGroupItem 
-                      value="beginner" 
-                      className="w-full text-xs data-[state=on]:bg-primary/20 transition-all duration-300 hover:bg-primary/10"
-                    >
-                      Beginner
-                    </ToggleGroupItem>
-                    <ToggleGroupItem 
-                      value="intermediate" 
-                      className="w-full text-xs data-[state=on]:bg-primary/20 transition-all duration-300 hover:bg-primary/10"
-                    >
-                      Intermediate
-                    </ToggleGroupItem>
-                    <ToggleGroupItem 
-                      value="advanced" 
-                      className="w-full text-xs data-[state=on]:bg-primary/20 transition-all duration-300 hover:bg-primary/10"
-                    >
-                      Advanced
-                    </ToggleGroupItem>
-                  </ToggleGroup>
+                <Slider
+                  id="price-range"
+                  value={priceRange}
+                  min={100}
+                  max={10000}
+                  step={100}
+                  onValueChange={setPriceRange}
+                  className="py-0.5"
+                />
+                <div className="flex justify-between text-xs text-muted-foreground">
+                  <span>$100</span>
+                  <span>$10,000</span>
                 </div>
               </div>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row gap-4 pt-4 animate-slide-up" style={{ animationDelay: '400ms' }}>
-              <Button size="lg" className="hover-lift" asChild>
-                <Link to="/signup">Get Started <ChevronRight className="ml-2 h-4 w-4" /></Link>
-              </Button>
-              <Button size="lg" variant="outline" className="hover-lift" asChild>
-                <Link to="/find-editors">Find Editors</Link>
-              </Button>
+              
+              <div className="space-y-1">
+                <Label htmlFor="experience-level" className="text-xs font-medium">Experience Level</Label>
+                <ToggleGroup 
+                  id="experience-level"
+                  type="single" 
+                  value={experienceLevel} 
+                  onValueChange={(value) => {
+                    if (value) setExperienceLevel(value);
+                  }}
+                  className="justify-between w-full hover-lift"
+                >
+                  <ToggleGroupItem 
+                    value="beginner" 
+                    className="w-full text-xs data-[state=on]:bg-primary/20 transition-all duration-300 hover:bg-primary/10"
+                  >
+                    Beginner
+                  </ToggleGroupItem>
+                  <ToggleGroupItem 
+                    value="intermediate" 
+                    className="w-full text-xs data-[state=on]:bg-primary/20 transition-all duration-300 hover:bg-primary/10"
+                  >
+                    Intermediate
+                  </ToggleGroupItem>
+                  <ToggleGroupItem 
+                    value="advanced" 
+                    className="w-full text-xs data-[state=on]:bg-primary/20 transition-all duration-300 hover:bg-primary/10"
+                  >
+                    Advanced
+                  </ToggleGroupItem>
+                </ToggleGroup>
+              </div>
             </div>
           </div>
           
-          <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8 animate-fade-in" style={{ animationDelay: '500ms' }}>
+          <div className="flex flex-col sm:flex-row gap-3 mt-6 animate-slide-up" style={{ animationDelay: '400ms' }}>
+            <Button size="sm" className="hover-slide-right px-6 py-5 text-sm" asChild>
+              <Link to="/signup">Get Started <ChevronRight className="ml-1 h-4 w-4" /></Link>
+            </Button>
+            <Button size="sm" variant="outline" className="hover-slide-right px-6 py-5 text-sm" asChild>
+              <Link to="/find-editors">Find Editors</Link>
+            </Button>
+          </div>
+          
+          <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in" style={{ animationDelay: '500ms' }}>
             <FeatureCard 
               title="Secure Transactions" 
               description="Military-grade encryption protects your data and assets at every step."

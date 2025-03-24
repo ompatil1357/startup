@@ -70,7 +70,8 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
                 space: {
-                    'blue': '#33C3F0',
+                    'purple': '#a259ff',
+                    'pink': '#ff6ac2',
                     'dark': '#1A1F2C',
                     'light': '#F6F7F9',
                     'gray': '#8A898C',
@@ -138,10 +139,10 @@ export default {
                 },
                 'glow': {
                     '0%, 100%': { 
-                        boxShadow: '0 0 5px rgba(51, 195, 240, 0.3), 0 0 10px rgba(51, 195, 240, 0.2)' 
+                        boxShadow: '0 0 5px rgba(162, 89, 255, 0.3), 0 0 10px rgba(162, 89, 255, 0.2)' 
                     },
                     '50%': { 
-                        boxShadow: '0 0 10px rgba(51, 195, 240, 0.5), 0 0 20px rgba(51, 195, 240, 0.3)' 
+                        boxShadow: '0 0 10px rgba(162, 89, 255, 0.5), 0 0 20px rgba(162, 89, 255, 0.3)' 
                     }
                 }
 			},
