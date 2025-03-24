@@ -13,6 +13,7 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { toast } = useToast();
+  const [activeTab, setActiveTab] = useState("login");
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -58,7 +59,7 @@ const Login = () => {
       </Link>
 
       <Card className="w-full max-w-md bg-card/80 backdrop-blur-xl border border-border/50 animate-fade-in shadow-glow">
-        <Tabs defaultValue="login" className="w-full">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <TabsList className="grid w-full grid-cols-2 mb-4">
             <TabsTrigger value="login">Login</TabsTrigger>
             <TabsTrigger value="signup">Sign Up</TabsTrigger>
@@ -106,9 +107,13 @@ const Login = () => {
                 </Button>
                 <p className="mt-4 text-center text-sm text-muted-foreground">
                   Don't have an account?{" "}
-                  <TabsTrigger value="signup" className="text-primary underline px-0 py-0 bg-transparent hover:bg-transparent">
+                  <button 
+                    type="button"
+                    onClick={() => setActiveTab("signup")}
+                    className="text-primary underline px-0 py-0 bg-transparent hover:bg-transparent"
+                  >
                     Sign up
-                  </TabsTrigger>
+                  </button>
                 </p>
               </CardFooter>
             </form>
@@ -151,9 +156,13 @@ const Login = () => {
                 </Button>
                 <p className="mt-4 text-center text-sm text-muted-foreground">
                   Already have an account?{" "}
-                  <TabsTrigger value="login" className="text-primary underline px-0 py-0 bg-transparent hover:bg-transparent">
+                  <button 
+                    type="button"
+                    onClick={() => setActiveTab("login")}
+                    className="text-primary underline px-0 py-0 bg-transparent hover:bg-transparent"
+                  >
                     Login
-                  </TabsTrigger>
+                  </button>
                 </p>
               </CardFooter>
             </form>
