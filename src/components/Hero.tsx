@@ -47,7 +47,7 @@ export function Hero() {
       
       <div className="container relative z-10">
         <div className="max-w-5xl mx-auto text-center">
-          <div className="flex flex-col items-center space-y-8">
+          <div className="flex flex-col items-center space-y-6">
             <div className="inline-flex items-center px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-sm text-primary mb-4 animate-fade-in hover-lift">
               <Shield className="h-3.5 w-3.5 mr-2" />
               <span>Secure Escrow Services for Digital Assets</span>
@@ -64,28 +64,20 @@ export function Hero() {
               conditions are met.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 pt-6 animate-slide-up" style={{ animationDelay: '300ms' }}>
-              <Button size="lg" className="hover-lift" asChild>
-                <Link to="/signup">Get Started <ChevronRight className="ml-2 h-4 w-4" /></Link>
-              </Button>
-              <Button size="lg" variant="outline" className="hover-lift" asChild>
-                <Link to="/find-editors">Find Editors</Link>
-              </Button>
-            </div>
-            
-            <div className="w-full max-w-sm mx-auto mt-10 p-4 bg-card/80 backdrop-blur-sm rounded-xl border border-border animate-fade-in hover-lift" style={{ animationDelay: '400ms' }}>
-              <div className="space-y-4">
-                <div className="space-y-2">
+            {/* Budget and Experience Selection Box - Now smaller and moved up */}
+            <div className="w-full max-w-xs mx-auto mt-6 p-3 bg-card/80 backdrop-blur-sm rounded-xl border border-border animate-fade-in hover-lift" style={{ animationDelay: '300ms' }}>
+              <div className="space-y-3">
+                <div className="space-y-1.5">
                   <div className="flex items-center justify-between mb-1">
-                    <Label htmlFor="price-range" className="font-medium">Budget Range</Label>
+                    <Label htmlFor="price-range" className="text-sm font-medium">Budget Range</Label>
                     <div className="flex items-center gap-1">
-                      <DollarSign className="h-4 w-4" />
+                      <DollarSign className="h-3.5 w-3.5" />
                       <Input
                         type="number"
                         value={priceInput}
                         onChange={handlePriceInputChange}
                         onBlur={handlePriceInputBlur}
-                        className="w-20 h-8 p-1 text-right"
+                        className="w-16 h-7 p-1 text-right text-sm"
                         min="100"
                         max="10000"
                       />
@@ -98,7 +90,7 @@ export function Hero() {
                     max={10000}
                     step={100}
                     onValueChange={setPriceRange}
-                    className="py-1"
+                    className="py-0.5"
                   />
                   <div className="flex justify-between text-xs text-muted-foreground">
                     <span>$100</span>
@@ -106,8 +98,8 @@ export function Hero() {
                   </div>
                 </div>
                 
-                <div className="space-y-2">
-                  <Label htmlFor="experience-level" className="font-medium">Experience Level</Label>
+                <div className="space-y-1.5">
+                  <Label htmlFor="experience-level" className="text-sm font-medium">Experience Level</Label>
                   <ToggleGroup 
                     id="experience-level"
                     type="single" 
@@ -119,25 +111,34 @@ export function Hero() {
                   >
                     <ToggleGroupItem 
                       value="beginner" 
-                      className="w-full data-[state=on]:bg-primary/20 transition-all duration-300 hover:bg-primary/10"
+                      className="w-full text-xs data-[state=on]:bg-primary/20 transition-all duration-300 hover:bg-primary/10"
                     >
                       Beginner
                     </ToggleGroupItem>
                     <ToggleGroupItem 
                       value="intermediate" 
-                      className="w-full data-[state=on]:bg-primary/20 transition-all duration-300 hover:bg-primary/10"
+                      className="w-full text-xs data-[state=on]:bg-primary/20 transition-all duration-300 hover:bg-primary/10"
                     >
                       Intermediate
                     </ToggleGroupItem>
                     <ToggleGroupItem 
                       value="advanced" 
-                      className="w-full data-[state=on]:bg-primary/20 transition-all duration-300 hover:bg-primary/10"
+                      className="w-full text-xs data-[state=on]:bg-primary/20 transition-all duration-300 hover:bg-primary/10"
                     >
                       Advanced
                     </ToggleGroupItem>
                   </ToggleGroup>
                 </div>
               </div>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-4 pt-4 animate-slide-up" style={{ animationDelay: '400ms' }}>
+              <Button size="lg" className="hover-lift" asChild>
+                <Link to="/signup">Get Started <ChevronRight className="ml-2 h-4 w-4" /></Link>
+              </Button>
+              <Button size="lg" variant="outline" className="hover-lift" asChild>
+                <Link to="/find-editors">Find Editors</Link>
+              </Button>
             </div>
           </div>
           
