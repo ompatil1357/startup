@@ -44,8 +44,8 @@ export function Hero() {
     <section className="relative overflow-hidden py-32 min-h-screen flex items-center justify-center">
       <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/0 to-background z-0"></div>
       
-      <div className="container relative z-10 text-center">
-        <div className="max-w-5xl mx-auto flex flex-col items-center">
+      <div className="container relative z-10 text-center flex justify-center items-center">
+        <div className="max-w-5xl mx-auto flex flex-col items-center justify-center">
           <div className="inline-flex items-center px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-sm text-primary mb-4 animate-fade-in hover-lift">
             <Shield className="h-3.5 w-3.5 mr-2" />
             <span>Secure Escrow Services for Digital Assets</span>
@@ -61,8 +61,6 @@ export function Hero() {
             Our state-of-the-art escrow service ensures your assets remain protected until all 
             conditions are met.
           </p>
-
-          {/* Removed Budget and Experience Selection Box */}
           
           <div className="flex flex-col sm:flex-row gap-3 mt-6 animate-slide-up" style={{ animationDelay: '400ms' }}>
             <Button size="sm" className="hover-slide-right px-6 py-5 text-sm" asChild>
