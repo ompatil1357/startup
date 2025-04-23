@@ -1,186 +1,129 @@
 
-import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { ChevronRight, Shield, DollarSign } from 'lucide-react';
-import { Slider } from '@/components/ui/slider';
-import { useState, useEffect } from 'react';
-import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
-import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Check, ArrowRight } from "lucide-react";
+import { useState } from "react";
+
+// Checklist items for right side
+const checklist = [
+  { text: "Buyer and seller agree on terms", checked: true },
+  { text: "Buyer pays AstroEscrow", checked: true },
+  { text: "Seller transfers the digital asset", checked: false },
+  { text: "Buyer approves delivery", checked: false },
+  { text: "AstroEscrow releases funds", checked: false },
+];
 
 export function Hero() {
-  const [priceRange, setPriceRange] = useState([500]);
-  const [priceInput, setPriceInput] = useState("500");
-  const [experienceLevel, setExperienceLevel] = useState("beginner");
-
-  // Sync the input with the slider
-  useEffect(() => {
-    setPriceInput(priceRange[0].toString());
-  }, [priceRange]);
-
-  // Handle direct price input
-  const handlePriceInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setPriceInput(value);
-    
-    const numValue = parseInt(value);
-    if (!isNaN(numValue) && numValue >= 100 && numValue <= 10000) {
-      setPriceRange([numValue]);
-    }
-  };
-
-  // Handle price input blur to ensure valid range
-  const handlePriceInputBlur = () => {
-    const numValue = parseInt(priceInput);
-    if (isNaN(numValue) || numValue < 100) {
-      setPriceRange([100]);
-      setPriceInput("100");
-    } else if (numValue > 10000) {
-      setPriceRange([10000]);
-      setPriceInput("10000");
-    }
-  };
+  // Selling type for the select
+  const [sellingType, setSellingType] = useState("Digital Assets");
+  const [amount, setAmount] = useState("500");
 
   return (
-    <section className="relative overflow-hidden py-32 min-h-screen flex items-center justify-center">
-      <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/0 to-background z-0"></div>
-      
-      <div className="container relative z-10 text-center">
-        <div className="max-w-5xl mx-auto flex flex-col items-center">
-          <div className="inline-flex items-center px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-sm text-primary mb-4 animate-fade-in hover-lift">
-            <Shield className="h-3.5 w-3.5 mr-2" />
-            <span>Secure Escrow Services for Digital Assets</span>
+    <section 
+      className="relative w-full overflow-hidden min-h-[80vh] flex items-center justify-center px-4 sm:px-8 py-16 md:py-28 bg-gradient-to-bl from-[#184076] via-[#2B72B8] to-[#584EFF]"
+      style={{
+        background: "radial-gradient(circle at 60% 40%, #205BAC 45%, #152544 100%)",
+      }}
+    >
+      {/* Large purple accent circle, like .com logo */}
+      <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 z-0">
+        <div className="relative mr-10">
+          <div style={{
+            width: 230,
+            height: 230,
+            background: "radial-gradient(circle, #FAE67B 55%, #FBE873 90%)",
+            borderRadius: "100%",
+            boxShadow: "0 10px 68px 0 rgba(246,213,86,0.26)",
+            opacity: 0.95,
+          }}>
           </div>
-          
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight animate-slide-up text-center">
-            <span className="block glow-text">Secure Transactions</span>
-            <span className="block mt-2 text-white liquid-text">Beyond Boundaries</span>
+          <div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-mono font-black text-[56px] text-[#DAB02C] select-none"
+            style={{
+              letterSpacing: "-2px",
+              textShadow: "0 3px 15px #fceb8b90,0 1px 3px #d3af38"
+            }}
+          >
+            .com
+          </div>
+        </div>
+      </div>
+      {/* HERO CONTENT */}
+      <div className="container max-w-7xl mx-auto flex flex-col md:flex-row items-center md:justify-between relative z-10">
+        {/* Left - Main Slogan section */}
+        <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
+          <h1 className="mb-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heming font-extrabold leading-snug md:leading-tight tracking-tight text-white glow-text liquid-text">
+            Never buy or sell online <br className="hidden sm:inline" /> without using <span className="text-[#FBE873]">AstroEscrow</span>
           </h1>
-          
-          <p className="text-muted-foreground max-w-3xl text-lg md:text-xl animate-slide-up mx-auto mt-4" style={{ animationDelay: '200ms' }}>
-            AstroEscrow provides a safe, transparent platform for conducting digital transactions. 
-            Our state-of-the-art escrow service ensures your assets remain protected until all 
-            conditions are met.
+          <p className="max-w-xl text-lg md:text-xl font-inter text-white/90 mt-4 mb-7 md:mb-12 font-medium drop-shadow-sm">
+            With AstroEscrow you can buy and sell anything digital safely, without the risk of chargebacks. Truly secure, transparent payments for the future of online trade.
           </p>
-          
-          {/* Budget and Experience Selection Box - Smaller and moved up */}
-          <div className="w-full max-w-xs mx-auto mt-4 p-2 bg-card/80 backdrop-blur-sm rounded-lg border border-border animate-fade-in hover-lift" style={{ animationDelay: '300ms' }}>
-            <div className="space-y-2">
-              <div className="space-y-1">
-                <div className="flex items-center justify-between mb-1">
-                  <Label htmlFor="price-range" className="text-xs font-medium">Budget Range</Label>
-                  <div className="flex items-center gap-1">
-                    <DollarSign className="h-3 w-3" />
-                    <Input
-                      type="number"
-                      value={priceInput}
-                      onChange={handlePriceInputChange}
-                      onBlur={handlePriceInputBlur}
-                      className="w-16 h-6 p-1 text-right text-xs focus:ring-primary/50 focus:border-primary/50"
-                      min="100"
-                      max="10000"
-                    />
-                  </div>
-                </div>
-                <Slider
-                  id="price-range"
-                  value={priceRange}
-                  min={100}
-                  max={10000}
-                  step={100}
-                  onValueChange={setPriceRange}
-                  className="py-0.5"
-                />
-                <div className="flex justify-between text-xs text-muted-foreground">
-                  <span>$100</span>
-                  <span>$10,000</span>
-                </div>
-              </div>
-              
-              <div className="space-y-1">
-                <Label htmlFor="experience-level" className="text-xs font-medium">Experience Level</Label>
-                <ToggleGroup 
-                  id="experience-level"
-                  type="single" 
-                  value={experienceLevel} 
-                  onValueChange={(value) => {
-                    if (value) setExperienceLevel(value);
-                  }}
-                  className="justify-between w-full hover-lift"
-                >
-                  <ToggleGroupItem 
-                    value="beginner" 
-                    className="w-full text-xs data-[state=on]:bg-primary/20 transition-all duration-300 hover:bg-primary/10"
-                  >
-                    Beginner
-                  </ToggleGroupItem>
-                  <ToggleGroupItem 
-                    value="intermediate" 
-                    className="w-full text-xs data-[state=on]:bg-primary/20 transition-all duration-300 hover:bg-primary/10"
-                  >
-                    Intermediate
-                  </ToggleGroupItem>
-                  <ToggleGroupItem 
-                    value="advanced" 
-                    className="w-full text-xs data-[state=on]:bg-primary/20 transition-all duration-300 hover:bg-primary/10"
-                  >
-                    Advanced
-                  </ToggleGroupItem>
-                </ToggleGroup>
-              </div>
+          <div className="w-full max-w-lg flex gap-3 flex-col md:flex-row items-center mb-7">
+            <div className="flex rounded-md shadow overflow-hidden border-[1.5px] border-white bg-white/80 min-w-[210px] font-inter">
+              <select
+                className="px-3 py-2 focus:outline-none text-gray-800 text-base font-semibold bg-transparent"
+                value={sellingType}
+                onChange={(e) => setSellingType(e.target.value)}
+                aria-label="Select Selling Type"
+              >
+                <option>Digital Assets</option>
+                <option>Domains</option>
+                <option>Services</option>
+                <option>Websites</option>
+                <option>NFTs</option>
+              </select>
+              <input
+                type="text"
+                className="px-3 py-2 border-l border-gray-300 focus:outline-none bg-transparent text-base font-medium text-gray-700 grow"
+                placeholder="Asset name"
+                aria-label="Asset Name"
+              />
             </div>
-          </div>
-          
-          <div className="flex flex-col sm:flex-row gap-3 mt-6 animate-slide-up" style={{ animationDelay: '400ms' }}>
-            <Button size="sm" className="hover-slide-right px-6 py-5 text-sm" asChild>
-              <Link to="/signup">Get Started <ChevronRight className="ml-1 h-4 w-4" /></Link>
+            <div className="flex rounded-md shadow overflow-hidden border-[1.5px] border-white bg-white/80 min-w-[130px] max-w-[150px] font-inter">
+              <span className="py-2 px-2 text-gray-700 font-semibold bg-transparent">$</span>
+              <input
+                type="number"
+                className="px-1 py-2 w-20 focus:outline-none text-gray-900 font-medium bg-transparent"
+                value={amount}
+                min={20}
+                max={1000000}
+                onChange={e => setAmount(e.target.value.replace(/[^0-9]/g, ""))}
+                aria-label="Amount"
+              />
+            </div>
+            <Button
+              className="flex-grow md:w-auto whitespace-nowrap rounded-md px-5 py-3 font-extrabold text-lg text-white bg-gradient-to-tr from-[#6C44D7] via-[#A259FF] to-[#9b87f5] shadow-lg hover-slide-right hover:bg-[#8E4DFB] transition-all duration-300"
+              size="sm"
+              asChild
+            >
+              <Link to="/signup" className="flex items-center gap-1">
+                Get started now <ArrowRight className="ml-1" />
+              </Link>
             </Button>
-            <Button size="sm" variant="outline" className="hover-slide-right px-6 py-5 text-sm" asChild>
-              <Link to="/find-editors">Find Editors</Link>
-            </Button>
           </div>
-          
-          <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in" style={{ animationDelay: '500ms' }}>
-            <FeatureCard 
-              title="Secure Transactions" 
-              description="Military-grade encryption protects your data and assets at every step."
-              delay={100}
-            />
-            <FeatureCard 
-              title="Transparent Process" 
-              description="Clear milestones and real-time updates keep all parties informed."
-              delay={200}
-            />
-            <FeatureCard 
-              title="Global Reach" 
-              description="Conduct transactions with partners anywhere in the world securely."
-              delay={300}
-            />
+        </div>
+        {/* Right - Checklist column */}
+        <div className="hidden md:flex flex-col items-center justify-center md:w-1/2 relative z-2">
+          <div className="max-w-sm w-full bg-white/10 px-8 py-7 rounded-2xl shadow-lg border border-white/15 ml-16 backdrop-blur-md">
+            <h4 className="font-heming font-semibold text-xl text-white mb-4 text-left">
+              Buy or sell digital assets securely
+            </h4>
+            <ul className="space-y-3 mt-3">
+              {checklist.map((item, idx) => (
+                <li key={idx} className={`flex items-center gap-2 text-base font-inter font-[500] ${item.checked ? "text-[#A259FF]" : "text-white/80"}`}>
+                  <span className={`w-[22px] h-[22px] flex items-center justify-center rounded-full border-2 ${item.checked ? "border-[#A259FF] bg-[#a259ff24]" : "border-white/40"}`}>
+                    {item.checked ? <Check size={18} className="text-[#A259FF]" /> : <span className="block w-2 h-2 bg-white/60 rounded-full" />}
+                  </span>
+                  {item.text}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-8 text-sm text-white/60">
+              Used by creators to trade everything from domains to websites & NFTs.
+            </p>
           </div>
         </div>
       </div>
     </section>
-  );
-}
-
-interface FeatureCardProps {
-  title: string;
-  description: string;
-  delay: number;
-}
-
-function FeatureCard({ title, description, delay }: FeatureCardProps) {
-  return (
-    <div 
-      className="group relative p-6 rounded-xl border border-border bg-card backdrop-blur-sm hover:shadow-md transition-all animate-scale-in hover-lift"
-      style={{ animationDelay: `${delay}ms` }}
-    >
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-      
-      <h3 className="text-xl font-semibold mb-2">{title}</h3>
-      <p className="text-muted-foreground">{description}</p>
-      
-      <div className="mt-4 h-1.5 w-12 rounded-full bg-primary/20 group-hover:w-16 transition-all duration-300"></div>
-    </div>
   );
 }
