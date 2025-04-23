@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ChevronRight, Shield, DollarSign } from 'lucide-react';
@@ -62,74 +61,8 @@ export function Hero() {
             Our state-of-the-art escrow service ensures your assets remain protected until all 
             conditions are met.
           </p>
-          
-          {/* Budget and Experience Selection Box - Smaller and moved up */}
-          <div className="w-full max-w-xs mx-auto mt-4 p-2 bg-card/80 backdrop-blur-sm rounded-lg border border-border animate-fade-in hover-lift" style={{ animationDelay: '300ms' }}>
-            <div className="space-y-2">
-              <div className="space-y-1">
-                <div className="flex items-center justify-between mb-1">
-                  <Label htmlFor="price-range" className="text-xs font-medium">Budget Range</Label>
-                  <div className="flex items-center gap-1">
-                    <DollarSign className="h-3 w-3" />
-                    <Input
-                      type="number"
-                      value={priceInput}
-                      onChange={handlePriceInputChange}
-                      onBlur={handlePriceInputBlur}
-                      className="w-16 h-6 p-1 text-right text-xs focus:ring-primary/50 focus:border-primary/50"
-                      min="100"
-                      max="10000"
-                    />
-                  </div>
-                </div>
-                <Slider
-                  id="price-range"
-                  value={priceRange}
-                  min={100}
-                  max={10000}
-                  step={100}
-                  onValueChange={setPriceRange}
-                  className="py-0.5"
-                />
-                <div className="flex justify-between text-xs text-muted-foreground">
-                  <span>$100</span>
-                  <span>$10,000</span>
-                </div>
-              </div>
-              
-              <div className="space-y-1">
-                <Label htmlFor="experience-level" className="text-xs font-medium">Experience Level</Label>
-                <ToggleGroup 
-                  id="experience-level"
-                  type="single" 
-                  value={experienceLevel} 
-                  onValueChange={(value) => {
-                    if (value) setExperienceLevel(value);
-                  }}
-                  className="justify-between w-full hover-lift"
-                >
-                  <ToggleGroupItem 
-                    value="beginner" 
-                    className="w-full text-xs data-[state=on]:bg-primary/20 transition-all duration-300 hover:bg-primary/10"
-                  >
-                    Beginner
-                  </ToggleGroupItem>
-                  <ToggleGroupItem 
-                    value="intermediate" 
-                    className="w-full text-xs data-[state=on]:bg-primary/20 transition-all duration-300 hover:bg-primary/10"
-                  >
-                    Intermediate
-                  </ToggleGroupItem>
-                  <ToggleGroupItem 
-                    value="advanced" 
-                    className="w-full text-xs data-[state=on]:bg-primary/20 transition-all duration-300 hover:bg-primary/10"
-                  >
-                    Advanced
-                  </ToggleGroupItem>
-                </ToggleGroup>
-              </div>
-            </div>
-          </div>
+
+          {/* Removed Budget and Experience Selection Box */}
           
           <div className="flex flex-col sm:flex-row gap-3 mt-6 animate-slide-up" style={{ animationDelay: '400ms' }}>
             <Button size="sm" className="hover-slide-right px-6 py-5 text-sm" asChild>

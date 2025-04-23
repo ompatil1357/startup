@@ -28,23 +28,28 @@ export function Navbar() {
 
   return (
     <>
-      <nav className={cn(
-        "floating-navbar w-full max-w-full px-8 transition-all duration-300 mx-auto", 
-        scrolled && "scrolled shadow-lg"
-      )}>
+      <nav
+        className={cn(
+          // Remove border and background from navbar; add a more compact style for logo/toggle area
+          "floating-navbar w-full max-w-full px-4 py-2 transition-all duration-300 mx-auto bg-transparent border-none shadow-none",
+          scrolled && "scrolled"
+        )}
+        style={{ boxShadow: "none", border: "none" }}
+      >
         <div className="flex items-center justify-between w-full">
           <Link 
             to="/" 
-            className="flex items-center text-xl font-semibold tracking-tight transition-colors"
+            className="flex items-center gap-1 text-xl font-semibold tracking-tight transition-colors"
           >
-            <ShieldCheck className="h-7 w-7 text-white" />
+            <ShieldCheck className="h-6 w-6 md:h-7 md:w-7 text-white" />
+            <span className="ml-1 text-base font-heming font-bold tracking-tight hidden sm:inline">AstroEscrow</span>
           </Link>
           
           <div className="hidden md:flex items-center justify-center flex-1 mx-6">
             <NavLinks />
           </div>
           
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             <ThemeToggle />
             <Button 
               size="sm" 
@@ -72,8 +77,9 @@ export function Navbar() {
         <div className="fixed inset-0 z-50 bg-background/95 backdrop-blur-sm md:hidden">
           <div className="fixed top-0 right-0 w-full p-6">
             <div className="flex items-center justify-between">
-              <Link to="/" className="flex items-center gap-2 text-xl font-semibold font-heming" onClick={() => setMobileMenuOpen(false)}>
+              <Link to="/" className="flex items-center gap-1 text-xl font-semibold font-heming" onClick={() => setMobileMenuOpen(false)}>
                 <ShieldCheck className="h-6 w-6 text-white" />
+                <span className="ml-1 text-base font-bold tracking-tight">AstroEscrow</span>
               </Link>
               <Button variant="ghost" size="icon" onClick={toggleMobileMenu}>
                 <X className="h-5 w-5" />
